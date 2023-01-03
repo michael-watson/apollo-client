@@ -17,7 +17,7 @@ const contextKey = canUseSymbol
   : '__APOLLO_CONTEXT__';
 
 export function getApolloContext(): React.Context<ApolloContextValue> {
-  let context = (React.createContext as any)[contextKey] as React.Context<ApolloContextValue>;
+  let context = (React?.createContext as any)[contextKey] as React.Context<ApolloContextValue>;
   if (!context) {
     Object.defineProperty(React.createContext, contextKey, {
       value: context = React.createContext<ApolloContextValue>({}),
